@@ -16,12 +16,12 @@ const addblog = async (req, res) => {
     }
     let data = await blogS.create(obj)
     console.log(data)
-    return res.render("blog")
 }
 
 const allblog = async (req, res) => {
     const data = await blogS.find()
     res.send(data);
+    return res.render("blog")
 }
 
 const getallblog = async (req, res) => {
