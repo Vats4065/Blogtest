@@ -5,11 +5,11 @@ const blogSchema = new mongoose.Schema({
     title: String,
     description: String,
     category: String,
-    comments: [{
-        text: String,
-        username: String
-    }],
-    createdby: { type: mongoose.Schema.Types.ObjectId, ref: "user" }
+    // comments: [{
+    //     text: String,
+    //     username: String
+    // }],
+    // createdby: { type: mongoose.Schema.Types.ObjectId, ref: "user" }
 })
 
 const blogS = mongoose.model("blog", blogSchema)

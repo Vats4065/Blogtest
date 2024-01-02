@@ -6,17 +6,17 @@ const getadd = (req, res) => {
 
 const addblog = async (req, res) => {
     const { img, title, description, category } = req.body
-   
+
     let obj = {
         img,
         title,
         description,
         category
-    
+
     }
     let data = await blogS.create(obj)
     console.log(data)
-    res.render("blog")
+    return res.render("blog")
 }
 
 const allblog = async (req, res) => {
@@ -24,9 +24,33 @@ const allblog = async (req, res) => {
     res.send(data);
 }
 
-const getallblog = async(req,res)=>{
+const getallblog = async (req, res) => {
     res.render("blog");
 }
 
 
-module.exports = { getadd, addblog, allblog, getallblog }
+const remove = async (req, res) => {
+    const { id } = req.params
+
+    const data = await blogS.findByIdAndDelete(id)
+
+    res.send("deletes")
+}
+
+
+const update = async (req, res) => {
+    const { title, img, description, category } = req.body
+    const { id } = req.params
+
+    let obj = {
+        img, title, description, category
+    }
+
+    const data = await blogS.findByIdAndUpdate(id, obj)
+
+    res.send(data)
+}
+
+
+
+module.exports = { getadd, addblog, allblog, getallblog, remove, update }

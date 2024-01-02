@@ -14,7 +14,7 @@ app.use(express.static(__dirname + "/public"));
 
 app.use("/user", userroute)
 app.use("/blog", blog)
-app.listen(8020, () => {
+app.listen(8000, () => {
     console.log("server listning")
     conn();
 })

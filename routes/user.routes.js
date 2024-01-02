@@ -1,21 +1,23 @@
 const { Router } = require("express");
-const { getsignup, signup, getlogin, login } = require("../controller/user.controller");
+const { getsignup, signup, getlogin, login, logout } = require("../controller/user.controller");
 const { adminauth, userauth } = require("../middleware/user.middleware");
 
 
 
 const userroute = Router()
 
-userroute.get("/signup",getsignup);
+userroute.get("/signup", getsignup);
 
-userroute.post("/getsignup",signup);
+userroute.post("/signup", signup);
 
-userroute.get("/login",getlogin);
+userroute.get("/login", getlogin);
 
-userroute.post("/login",login)
+userroute.post("/login", login)
+
+userroute.get("/logout", userauth, logout)
 
 
 
 
 
-module.exports = {userroute}
+module.exports = { userroute }

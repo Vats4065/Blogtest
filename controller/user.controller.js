@@ -63,4 +63,9 @@ const login = async (req, res) => {
         return res.send("user not found");
     }
 }
-module.exports = { getsignup, signup, getlogin, login }
+
+const logout = (req, res) => {
+    res.clearCookie("token").redirect("login")
+}
+
+module.exports = { getsignup, signup, getlogin, login, logout }
