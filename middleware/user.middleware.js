@@ -24,7 +24,7 @@ const adminauth = async (req, res, next) => {
 
     let data = jwt.verify(token, "k");
     if (data.role == "admin") {
-        req.user = data.id
+        req.user = data;
         next();
     } else {
         res.send("only admin have access for this page")

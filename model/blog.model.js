@@ -9,7 +9,7 @@ const blogSchema = new mongoose.Schema({
     //     text: String,
     //     username: String
     // }],
-    // createdby: { type: mongoose.Schema.Types.ObjectId, ref: "user" }
+    createdby: { type: mongoose.Schema.Types.ObjectId, ref: "user" }
 })
 
 const blogS = mongoose.model("blog", blogSchema)
